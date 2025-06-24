@@ -84,5 +84,17 @@ export const useApi = () => {
     }
   };
 
-  return { get, post, patch, deleteRequest, del };
+  const put = async (name, data, config, pathParams) => {
+    const endpoint = getEndpoint(name);
+    const url = constructUrl(endpoint, pathParams);
+    try {
+      const response = await instance.put(url, data, config);
+      return response;
+    } catch (error) {
+      console.error("PUT request error:", error);
+      throw error;
+    }
+  };
+
+  return { get, post, put, patch, deleteRequest, del };
 };

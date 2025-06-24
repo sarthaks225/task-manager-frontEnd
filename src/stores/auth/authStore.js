@@ -1,39 +1,45 @@
 import { create } from "zustand";
-//import login from "./login";
+import { login } from "./login";
 //import getUserInfoById from "./getUserInfoById";
 //import resetPasswordByAdmin from "./resetPasswordByAdmin";
 //import { updateTokenAndUser } from "../../api/instance";
 
 export const useAuthStore = create((set) => ({
   isAuthenticated: false,
-  error: null,
-  token: JSON.parse(localStorage.getItem("TOKEN") || "{}"),
+  message: null,
+  loading: false,
+  success: false,
   user: JSON.parse(localStorage.getItem("USER") || "{}"),
-  accessConfig: JSON.parse(localStorage.getItem("accessConfig") || "{}"),
 
-  resetError: () => {
+  resetUseAuthStore: () => {
     set(() => ({
-      error: null,
+      message: null,
+      loading: false,
     }));
   },
-  login: async (email, password) => {
-    const res = await login(email, password);
+  login: async (user) => {
+    set({ success: false, loading: true, message: null });
+    console.log("Login request received at store >>" + JSON.stringify(user));
+    const res = await login(user);
     // console.log(res);
     if (res?.status === 200) {
-      localStorage.setItem("TOKEN", JSON.stringify(res.data.data.token));
-      localStorage.setItem("USER", JSON.stringify(res.data.data.user));
+      localStorage.setItem("TOKEN", JSON.stringify(res?.data?.token));
+      localStorage.setItem("USER", JSON.stringify(res?.data?.user));
       //updateTokenAndUser();
       set(() => ({
         isAuthenticated: true,
-        error: null,
-        user: res.data.data.user,
-        token: res.data.data.token,
-      })); // Clear error on successful login
+        loading: false,
+        success: true,
+        message: res.data.message || "Login successful",
+        user: res.data.user,
+      }));
     } else {
       console.log("Error received at store >>" + JSON.stringify(res));
       set(() => ({
         isAuthenticated: false,
-        error: res.message || "Unexpected error",
+        loading: false,
+        success: false,
+        message: res?.message || "Unexpected error while logging in",
       }));
     }
   },
@@ -59,36 +65,16 @@ export const useAuthStore = create((set) => ({
     return JSON.parse(localStorage.getItem("TOKEN") || "{}");
   },
 
-  // getUserInfoByID: async (id) => {
-  //   const response = await getUserInfoById(id);
-  //   if (response?.status === 200) {
-  //     return response?.data?.data?.info;
-  //   } else {
-  //     console.log(
-  //       "Error received at authStore store >>" + JSON.stringify(response)
-  //     );
-  //     set(() => ({
-  //       error: response?.errorMessage || "Unexpected error",
-  //     }));
-  //   }
-  // },
-
-  // resetPasswordByAdmin: async (id, password) => {
-  //   const response = await resetPasswordByAdmin(id, password);
-
-  //   if (response?.status === 200) {
-  //     return {
-  //       success: true,
-  //       error: false,
-  //       message: response?.data?.data?.result,
-  //     };
-  //   } else {
-  //     console.log("Error received at store >>" + JSON.stringify(response));
-  //     return {
-  //       success: false,
-  //       error: true,
-  //       message: response.errorMessag || "Unexpected error",
-  //     };
-  //   }
-  // },
+  logout: () => {
+    localStorage.removeItem("USER");
+    localStorage.removeItem("TOKEN");
+    set(() => ({
+      isAuthenticated: false,
+      user: {},
+      message: null,
+      loading: false,
+      success: false,
+    }));
+    window.location.href = "/login"; // Redirect to login page
+  },
 }));
