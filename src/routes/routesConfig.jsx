@@ -5,7 +5,7 @@ import {
   Outlet,
 } from "react-router-dom";
 import DashboardConfig from "../pages/main/DashboardConfig";
-import SignupConfig from "../pages/signup/signupConfig";
+import SignupConfig from "../pages/signup/SignupConfig";
 import LoginConfig from "../pages/login/LoginConfig";
 import { useAuthStore } from "../stores/auth/authStore";
 
