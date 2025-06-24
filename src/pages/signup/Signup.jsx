@@ -135,7 +135,7 @@ const SignUp = () => {
           justifyContent: "center",
           alignItems: "center",
           width: lgUp ? "75%" : "100%",
-          height: "100%",
+          // height: "100%",
           background: "white",
           borderTopLeftRadius: lgUp ? "25pt" : "",
           borderBottomLeftRadius: lgUp ? "25pt" : "",
