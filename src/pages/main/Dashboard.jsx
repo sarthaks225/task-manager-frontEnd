@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useTaskStore } from "../../stores/tasks/taskStore";
 import { Grid, Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import Header from "../../components/header/header";
+import Header from "../../components/header/Header";
 import TaskList from "./components/TaskList";
 import TaskState from "./components/TaskState";
 import CompletedTaskList from "./components/CompletedTaskList";
