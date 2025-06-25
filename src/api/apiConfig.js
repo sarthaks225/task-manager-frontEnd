@@ -9,4 +9,10 @@ export const apiConfig = [
     method: "PUT",
     hasPathParams: true,
   },
+  {
+    name: "deleteTask",
+    path: "/api/tasks/{id}",
+    method: "DELETE",
+    hasPathParams: true,
+  },
 ];

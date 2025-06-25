@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import {
   Typography,
-  Avatar,
-  Button,
-  Stack,
   IconButton,
   Menu,
   MenuItem,
@@ -47,7 +44,7 @@ const Header = ({ theme }) => {
         borderBottomLeftRadius: "10px",
         borderTopLeftRadius: "0px",
         gap: 0,
-        border: "1px solid red",
+        // border: "1px solid red",
       }}
     >
       <Typography

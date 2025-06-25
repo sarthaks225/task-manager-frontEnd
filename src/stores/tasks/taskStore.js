@@ -1,5 +1,10 @@
 import { create } from "zustand";
-import { getTasks, addTask, updateTask } from "./taskApi";
+import {
+  getTasks,
+  addTask,
+  updateTask as updateTaskApi,
+  deleteTask,
+} from "./taskApi";
 
 export const useTaskStore = create((set, get) => ({
   tasks: [],
@@ -29,20 +34,32 @@ export const useTaskStore = create((set, get) => ({
     }
   },
 
-  updateTaskStatus: async (id, status) => {
+  updateTask: async (id, updatedTaskData) => {
+    console.log("Updating task with ID:", id, "Data:", updatedTaskData);
     set({ loading: true, message: null });
-    // Find the task to update
     const task = get().tasks.find((t) => t.id === id);
     if (!task) {
       set({ message: "Task not found", loading: false });
       return;
     }
-    // Send the full updated task object
-    const updatedTask = { ...task, status };
-    const res = await updateTask(id, updatedTask);
+    const updatedTask = { ...task, ...updatedTaskData };
+    const res = await updateTaskApi(updatedTask);
     if (res?.status === 200 || res?.status === 201) {
       set({
         tasks: get().tasks.map((t) => (t.id === id ? res.data : t)),
+        loading: false,
+      });
+    } else {
+      set({ message: res?.message, loading: false });
+    }
+  },
+
+  deleteTask: async (id) => {
+    set({ loading: true, message: null });
+    const res = await deleteTask(id);
+    if (res?.status === 200 || res?.status === 204) {
+      set({
+        tasks: get().tasks.filter((task) => task.id !== id),
         loading: false,
       });
     } else {

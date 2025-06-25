@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useApi } from "../../api/apiHooks";
 
 export const getTasks = async () => {
@@ -24,16 +25,31 @@ export const addTask = async (task) => {
   }
 };
 
-export const updateTask = async (id, updatedTask) => {
+export const updateTask = async (task) => {
   try {
-    // Use PUT and send the full task object
-    console.log("Updating task with ID:", id, "Data:", updatedTask);
-    const res = await useApi().put("updateTask", updatedTask, {}, { id });
+    const res = await useApi().put("updateTask", task, {}, { id: task.id });
     return { status: res.status, data: res.data };
   } catch (error) {
     return {
       status: error.response?.status,
       message: error?.response?.data?.message || "Failed to update task",
+    };
+  }
+};
+
+export const deleteTask = async (taskId) => {
+  try {
+    const res = await useApi().deleteRequest(
+      "deleteTask",
+      {},
+      {},
+      { id: taskId }
+    );
+    return { status: res.status, data: res.data };
+  } catch (error) {
+    return {
+      status: error.response?.status,
+      message: error?.response?.data?.message || "Failed to delete task",
     };
   }
 };
