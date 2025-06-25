@@ -12,7 +12,7 @@ function App() {
         width: "100%",
         height: "100%",
         boxSizing: "border-box",
-        border: "1px solid red",
+        // border: "1px solid red",
         overflow: "auto", // this allows scrolling when content overflows
       }}
     >
