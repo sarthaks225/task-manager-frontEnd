@@ -21,8 +21,25 @@ A modern task management web application built with **React** and **Vite**. This
 
   #Screenshots
 
-![Login]([https://github.com/sarthaks225/task-manager-backend/blob/main/assets/readme/ER_Diagram.png?raw=true](https://github.com/sarthaks225/task-manager-frontEnd/blob/main/assets/readme%20assets/2.1.png?raw=true))
-![Login]([https://github.com/sarthaks225/task-manager-backend/blob/main/assets/readme/ER_Diagram.png?raw=true](https://github.com/sarthaks225/task-manager-frontEnd/blob/main/assets/readme%20assets/1.1.jpg?raw=true))
+## Screenshots
+
+### 1.1.jpg
+![Screenshot 1.1](https://raw.githubusercontent.com/sarthaks225/task-manager-frontEnd/refs/heads/main/assets/readme%20assets/1.1.jpg)
+
+### 2.1.png
+![Screenshot 2.1](https://raw.githubusercontent.com/sarthaks225/task-manager-frontEnd/refs/heads/main/assets/readme%20assets/2.1.png)
+
+### 1.2.jpg
+![Screenshot 1.2](https://raw.githubusercontent.com/sarthaks225/task-manager-frontEnd/refs/heads/main/assets/readme%20assets/1.2.jpg)
+
+### 2.2.png
+![Screenshot 2.2](https://raw.githubusercontent.com/sarthaks225/task-manager-frontEnd/refs/heads/main/assets/readme%20assets/2.2.png)
+
+### 1.3.jpg
+![Screenshot 1.3](https://raw.githubusercontent.com/sarthaks225/task-manager-frontEnd/refs/heads/main/assets/readme%20assets/1.3.jpg)
+
+### 2.4.png
+![Screenshot 2.4](https://raw.githubusercontent.com/sarthaks225/task-manager-frontEnd/refs/heads/main/assets/readme%20assets/2.4.png)
 
 ## Getting Started
 
