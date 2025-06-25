@@ -19,6 +19,11 @@ A modern task management web application built with **React** and **Vite**. This
 - [Axios](https://axios-http.com/) for API requests
 - [React Router](https://reactrouter.com/) for routing
 
+  #Screenshots
+
+![Login]([https://github.com/sarthaks225/task-manager-backend/blob/main/assets/readme/ER_Diagram.png?raw=true](https://github.com/sarthaks225/task-manager-frontEnd/blob/main/assets/readme%20assets/2.1.png?raw=true))
+![Login]([https://github.com/sarthaks225/task-manager-backend/blob/main/assets/readme/ER_Diagram.png?raw=true](https://github.com/sarthaks225/task-manager-frontEnd/blob/main/assets/readme%20assets/1.1.jpg?raw=true))
+
 ## Getting Started
 
 ### Prerequisites
@@ -63,6 +68,4 @@ src/
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
