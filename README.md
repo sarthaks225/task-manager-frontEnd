@@ -1,12 +1,68 @@
-# React + Vite
+# Task Manager FrontEnd
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern task management web application built with **React** and **Vite**. This project features authentication, task CRUD operations, and a responsive UI using Material-UI (MUI).
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- User authentication (login/signup)
+- Create, read, update, and delete tasks
+- Responsive dashboard with drag-and-drop columns
+- Protected routes for authenticated users
+- Integration with a RESTful backend API
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Material-UI (MUI)](https://mui.com/)
+- [Zustand](https://zustand-demo.pmnd.rs/) for state management
+- [Axios](https://axios-http.com/) for API requests
+- [React Router](https://reactrouter.com/) for routing
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or higher recommended)
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/sarthaks225/task-manager-frontEnd.git
+   cd task-manager-frontEnd
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+   Open [http://localhost:5173](http://localhost:5173) in your browser to see the app in action.
+
+## Project Structure
+
+```
+src/
+  api/           # API configs and hooks
+  components/    # Reusable UI components
+  pages/         # Page-level components (Dashboard, Login, Signup, etc.)
+  stores/        # Zustand stores for state management
+  routes/        # React Router configuration
+  App.jsx        # Main app component
+```
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
